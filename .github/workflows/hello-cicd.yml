@@ -32,5 +32,6 @@ jobs:
             -   name: Create GitHub Release
                 uses: ncipollo/release-action@v1
                 with:
-                    artifacts: "dist/hello"
-                    tag: v${{ github.run_number }}
+                      artifacts: dist/hello
+                      tag: v${{ github.run_number }}
+                      token: ${{ secrets.GITHUB_TOKEN }}
