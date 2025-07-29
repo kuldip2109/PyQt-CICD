@@ -10,28 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout stage
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup Python stage
         uses: actions/setup-python@v4
 
-      - name: Install dependencies
+      - name: Install dependencies stage
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build with PyInstaller
+      - name: Build with PyInstaller stage
         run: |
           pyinstaller --onefile hello.py
 
-      - name: Upload executable as artifact
+      - name: Upload executable as artifact stage
         uses: actions/upload-artifact@v4
         with:
           name: PyQtHelloWorld
           path: dist/hello
 
-      - name: Create GitHub Release
+      - name: Create GitHub Release stage
         id: create_release  
         uses: actions/create-release@v1
         env:
@@ -42,7 +42,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload release asset
+      - name: Upload release asset stage
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
