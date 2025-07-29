@@ -1,4 +1,4 @@
-name: Hello world pipeline for PyQt
+name: Hello world pipeline for PyQt app
 
 on:
   push:
